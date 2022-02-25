@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Hakaton</title>
+</head>
+<body class="grey lighten-3">
+    <!-- NAVBAR -->
+    <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+            
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                </li>
+                <li class="logged-in"style="display: none;">
+                    <a href="#" class="grey-text" id="logout">LogOut</a>
+                </li>
+                <li class="logged-in"style="display: none ;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-create">Запишување семестар</a>
+                </li>
+                <li class="logged-in"style="display: none ;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-create">Заверување семестар</a>
+                </li>
+                <li class="logged-out"style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">LogIn</a>
+                </li>
+                <li class="logged-out"style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4>Sign up</h4> <br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required/>
+                    <label for="signup-email">Email adress</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose password</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="signup-bio" required>
+                    <label for="signup-bio">Бр на индекс</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4> <br/>
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+        <div class="modal-content center-align">
+            <h4>Account details</h4> <br/>
+            <div class="account-details"></div>
+        </div>
+    </div>
+
+    <div id="modal-create" class="modal" style="width: 62%;">
+        <div class="modal-content">
+            <h4>Запишување семестар</h4> <br/>
+            <form id="create-form">
+                <div class="input-field">
+                    <input type="text" id="title" required />
+                    <label for="title">Универизтет</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="index" class="materialize-textarea" required></textarea>
+                    <label for="index">Број на индекс</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="fakultet" class="materialize-textarea" required></textarea>
+                    <label for="fakultet">Факултет</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="ciklus" class="materialize-textarea" required></textarea>
+                    <label for="ciklus">Циклус на студии(прв,втор,трет)</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="modul" class="materialize-textarea" required></textarea>
+                    <label for="modul">Модул</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="ime" class="materialize-textarea" required></textarea>
+                    <label for="ime">Име</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="prezime" class="materialize-textarea" required></textarea>
+                    <label for="prezime">Презиме</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="adresa" class="materialize-textarea" required></textarea>
+                    <label for="adresa">Адреса на живеење</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="email" class="materialize-textarea" required></textarea>
+                    <label for="email">Е-маил и телефон</label>
+                </div>
+                <div class="radiobuttons">
+                    <p>Начин на студирање</p>
+                    <div class="">
+                      <input type="radio" id="contactChoice1"
+                       name="group1" value="Редовен во државна квота" style="position: relative; opacity: 1;">
+                      <label for="contactChoice1">Редовен во државна квота </label>
+                  
+                      <input type="radio" id="c2"
+                       name="group1" value="Редовен со кофинансирање" style="position: relative; opacity: 1;">
+                      <label for="c2">Редовен со кофинансирање</label>
+                  
+                      <input type="radio" id="contactChoice3"
+                       name="group1" value="Вондреден" style="position: relative; opacity: 1;">
+                      <label for="contactChoice3">Вондреден</label>
+                    </div>  
+                </div>
+                <div class="input-field">
+                    <textarea id="godina" class="materialize-textarea" required></textarea>
+                    <label for="godina">Учебна година</label>
+                </div>
+                <div class="radiobuttons11">
+                    <p>Семестар што се запишува (да се одбере)</p>
+                    <div class="1">
+                      <input type="radio" id="contactChoice2"
+                       name="contact" value="I" style="position: relative; opacity: 1;">
+                      <label for="contactChoice2"> I </label>
+                  
+                      <input type="radio" id="c3"
+                       name="contact" value="II" style="position: relative; opacity: 1;">
+                      <label for="c3">II</label>
+                  
+                      <input type="radio" id="contactChoice4"
+                       name="contact" value="III" style="position: relative; opacity: 1;">
+                      <label for="contactChoice4">III</label>
+
+                      <input type="radio" id="contactChoice5"
+                      name="contact" value="IV" style="position: relative; opacity: 1;">
+                     <label for="contactChoice5">IV</label>
+
+                     <input type="radio" id="contactChoice6"
+                     name="contact" value="V" style="position: relative; opacity: 1;">
+                     <label for="contactChoice6">V</label>
+
+                     <input type="radio" id="contactChoice7"
+                     name="contact" value="VI" style="position: relative; opacity: 1;">
+                     <label for="contactChoice">VI</label>
+
+                     <input type="radio" id="contactChoice8"
+                     name="contact" value="VII" style="position: relative; opacity: 1;">
+                     <label for="contactChoice8">VII</label>
+
+                     <input type="radio" id="contactChoice9"
+                     name="contact" value="VIII" style="position: relative; opacity: 1;">
+                     <label for="contactChoice9">VIII</label>
+                
+                    </div>  
+                    
+                </div>
+                <table class="tg" style="undefined; table-layout: fixed; width: 782px">
+                    <colgroup>
+                    <col style="width: 55.88889px">
+                    <col style="width: 59.88889px">
+                    <col style="width: 290.88889px">
+                    <col style="width: 136.88889px">
+                    <col style="width: 238.88889px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th class="tg-0pky" colspan="5"><span style="font-weight:bold">ЗАДОЛЖИТЕЛНИ ПРЕДМЕТИ</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="tg-c3ow"><span style="font-weight:bold">Ред бр.</span></td>
+                        <td class="tg-c3ow"><span style="font-weight:bold">код</span></td>
+                        <td class="tg-c3ow"><span style="font-weight:bold">назив на предметот</span></td>
+                        <td class="tg-c3ow"><span style="font-weight:bold">фонд на часови</span><br></td>
+                        <td class="tg-c3ow"><span style="font-weight:bold">име и презиме на наставникот</span><br></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">1.</td>
+                        <td class="tg-0pky"><textarea id="kod" class="materialize-textarea" required></textarea></td>
+                        <td class="tg-0pky"><textarea id="predmet" class="materialize-textarea" required></textarea></td>
+                        <td class="tg-0pky"><textarea id="fond" class="materialize-textarea" required></textarea></td>
+                        <td class="tg-0pky"><textarea id="profesor" class="materialize-textarea" required></textarea></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">2.</td>
+                        <td class="tg-0pky"><textarea id="kod1" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="predmet1" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="fond1" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="profesor1" class="materialize-textarea" ></textarea></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">3.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">4.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">5.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">6.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">7.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">8.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">9.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">10.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">11.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-fymr" colspan="5"><span style="font-weight:bold">ИЗБОРНИ ПРЕДМЕТИ</span></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">Ред. бр.</td>
+                        <td class="tg-7btt">Код</td>
+                        <td class="tg-7btt">назив на предметот</td>
+                        <td class="tg-7btt">фонд на часови</td>
+                        <td class="tg-7btt">име и презиме на наставникот</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">1.</td>
+                        <td class="tg-0pky"><textarea id="izKod" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="izPredmet" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="izFond" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="izProfesor" class="materialize-textarea" ></textarea></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">2.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">3.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">4.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">5.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-fymr" colspan="5">ФАКУЛТАТИВНИ ПРЕДМЕТИ</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">Ред. бр.</td>
+                        <td class="tg-7btt">код</td>
+                        <td class="tg-7btt">назив на предметот</td>
+                        <td class="tg-7btt">фонд на часови</td>
+                        <td class="tg-7btt">име и презиме на наставникот</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">1.</td>
+                        <td class="tg-0pky"><textarea id="faKod" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="faPredmet" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="faFond" class="materialize-textarea" ></textarea></td>
+                        <td class="tg-0pky"><textarea id="faProfesor" class="materialize-textarea" ></textarea></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">2.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-7btt">3.</td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"></td>
+                      </tr>
+                    </tbody>
+                    </table>
+                <button class="btn yellow darken-2 z-depth-0">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-create1" class="modal">
+        <div class="modal-content1">
+            <h4>Заверување семстар</h4> <br/>
+            <form id="create-form1">
+                <div class="input-field1">
+                    <input type="text" id="title1" required />
+                    <label for="title">Guide title</label>
+                </div>
+                <div class="input-field1">
+                    <textarea id="content1" class="materialize-textarea" required></textarea>
+                    <label for="content1">Guide Content</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- GUIDE LIST -->
+    <div class="container" style="margin-top: 45px;">
+        <ul class="collapsible z-depth-0 guides" style="border: none;">
+          
+        </ul>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+
+     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+   
+    
+<script>
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyC3aj6Hq-KNoIresqKfI4Y1BUg7YsB0a2Y",
+    authDomain: "hakaton-783ee.firebaseapp.com",
+    projectId: "hakaton-783ee",
+    storageBucket: "hakaton-783ee.appspot.com",
+    messagingSenderId: "534021309446",
+    appId: "1:534021309446:web:9b7244cd7cd78e72fb2f87",
+    measurementId: "G-Z6T5N6T203"
+  };
+
+// initialize Firebse
+firebase.initializeApp(firebaseConfig);
+
+const auth= firebase.auth();
+const db= firebase.firestore();
+
+// update firestore references
+db.settings({ timestampsInSnapshots: true});
+</script>
+
+<!-- initialize Firebase -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
